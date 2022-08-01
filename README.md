@@ -3,52 +3,19 @@
 
 In this study, we will analyze the patients’ data who are diagnosed with the disease. Using speech data from subjects is expected to help the development of a noninvasive diagnostic. People with Parkinsonism (PWP) suffer from speech impairments like dysphonia (defective use of the voice), hypophonia (reduced volume), monotone (reduced pitch range), and dysarthria (difficulty with articulation of sounds or syllables). Therefore, our analysis in this project will be based on voice parameters of the affected.
 
-Data:
+# Data
+
 The dataset was created by Athanasios Tsanas and Max Little of the University of Oxford, in collaboration with 10 medical centers in the US and Intel Corporation who developed the tele-monitoring device to record the speech signals.
 
 This dataset is composed of a range of biomedical voice measurements from 42 people with early-stage Parkinson’s disease recruited to a six-month trial of a tele-monitoring device for remote symptom progression monitoring. The recordings were automatically captured in the patient’s homes.
 
 Columns in the dataset contain subject number, subject age, subject gender, time interval from baseline recruitment date, motor UPDRS, total UPDRS, and 16 biomedical voice measures. Each row corresponds to one of 5,875 voice recording from these individuals. The main aim of the data is to predict the motor and total UPDRS scores (‘motor_UPDRS’ and ‘total_UPDRS’) from the 16 voice measures. The data is in ASCII CSV format. The rows of the CSV file contain an instance corresponding to one voice recording. There are around 200 recordings per patient, the subject number of the patient is identified in the first column.
 
+# Data Cleaning and Outlier Removal
 
 Our first step is going through the dataset and identify any missing value or outlier to take necessary measures. This step is essential to prepare the data for fruitful analysis. There are no missing values in our dataset.
 
-Correlations between the variables
-correlation_plot
-
 We can see that all the jitter variables highly correlate with Shimmer variables.
-
-Outlier Detection
-In this section we will look at some of the significant features and check if there are outliers available.
-
-2 3 4 5 6 1
-
-In our scattered plot between total_UPDRS and Jitter, it looks like, we can see out outlier observations in our data. Similarly, in our plots with total_UPDRS vs Shimmer, total_UPDRS vs NHR, total_UPDRS vs RPDE, total_UPDRS vs DFA, and total_UPDRS vs PPE, we can see some outlier observations.
-
-We will now look into bivariate boxplots in our data to look for outlier observations in our data.
-
-8 9 7
-
-The bivariate boxplot is showing a lot of our observations as outliers. Thus, we want to check our results with Convex Hull method as we don’t want to change the distribution of our data by removing the outliers.
-
-Convex Hull Method
-10
-
-Next we have removed outlier observations according to Convex hull.
-
-Dimensionality Reduction:
-Our next step is dimensionality reduction. The dataset is very large with 22 variables and some of the variables have high correlations between them. So we are expecting to reduce the number of dimensions for better interpretation of the data.
-
-Multi-dimensional scaling
-First we try Multi-dimensional scaling which can help us visualizing the variable relationships in 2D graphs.
-
-11
-
-The MDS plot clearly shows that age is creating a deviation between the datasets with female on the right and male on the left #this significant deviation is because the voice pictch, frequency and amplitude totally differs by being in different ranges for different genders.
-
-Criterion 1 and criterion 2 suggests that the first two coordinates can represents majority of the data points since the cummulative proportion is above the threshold value of 0.8. Hence the MDS plot can be on a 2D scatterplot
-
-12
 
 Below are the findings from multidimensional scaling on the parkinsons data:
 
@@ -132,7 +99,9 @@ The chi square statistic is 1506 on 25 degrees of freedom.
 The p-value is 7.7e-303
 print(parkinson.EFA$loadings, cut = 0.45)
 
-Loadings:
+
+Loadings
+
                          Factor1 Factor2 Factor3
            age                                  
            sex                                  
@@ -150,6 +119,8 @@ Loadings:
             SS loadings      3.294   1.134   0.965
             Proportion Var   0.299   0.103   0.088
             Cumulative Var   0.299   0.403   0.490
+
+
 First, when we try to do exploratory factor analysis with all the variables, the model doesn’t run. After some research we have come to the conclusion that due to high multicolinearity between some variables (specificaly jitter and shimmer), the algorithm is not converging. So we decided to reduce the values that have high correlation between them. From the correlation plot we can see that jitter and shimmer variables have high correlation (0.9+) between themselves. So we tried building the model with one jitter and one shimmer variable. From the random forest analysis, we saw that Jitter.Abs. and Shimmer.APQ11 have highest significance in their corresponding frequency and amplitude groups. So we took these 2 variables in the exploratory factor analysis. Also both the updrs variables have 0.9+ correlation between them. So we took one from that group too.
 
 With the above mentioned variables we explored different number of factors. But if we take 2 or 3 factors then only 40-45% data is explained. Also the age, sex and test_time have very small factor coefficient and large (0.8+) uniqueness. If we have 5/6 factors then the uniqueness of these variables lessen but still they are greater than 0.7.
