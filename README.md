@@ -419,7 +419,8 @@ Below are our findins from Principal Componenets Analysis:
 Covariance Matrix Interpretation:
 All of the variables showcase small magnitudes which can have positive or negative linear releationships.
 
-Correlation Matrix Interpretation:
+# Correlation Matrix Interpretation
+
 From the correlation matrix we have the following observatins:
 
 Variable HNR which is the ratio of noise to tonal components in the voice. This variable has an inverse releationship with all the variables.
@@ -428,10 +429,15 @@ Variables containing the word “Jitter” have high positive correlation values
 High correlation values between variables containing the word Shimer with variables containing the word “Jitter”
 The PPE variable represents a nonlinear measure of fundamental frequency variation. This variable has strong positive correlations with varaibles containing the word “jitters” or “Shimmers” and the variable RPDE. RPDE represents a nonlinear dynamical complexity measure.
 “total_UPDRS” and “motor_UPDRS” showcase a strong positive correlation. Where, “total_UPDRS” represents clinician’s total UPDRS score and “motor_UPDRS” the clinician’s motor UPDRS score both, linearly interpolated.
-PCA Interpretation:
+
+
+# PCA Interpretation
+
 The amount of components was determined according to the following rule. The total amount of variation that the components represent must be within 70% to 90%.
 According to this parameter components 1 through 4 where selected. These components amount to a total of 76% of the total variation.
-Pros and Cons of the study:
+
+
+# Pros and Cons of the study
 From our study on the dataset, we have come to the conclusion that age, sex, test-time and DFA are the variables that are most difficult to capture in a factor analysis model. Though we know from Random forest analysis and research papers that these variables are most significant in deciding the UPDRS score.
 In PCA, the age variable has high coefficient in component 7. But if we consider principal components with 1+ standard deviation, we have to consider the first 5 components, discarding the 7th component. Accordingly, test time and DFA has high coefficient in 6th and 8th component.
 The data has high correlation between the variable groups “Jitter” and “Shimmer” which caused problems related to multi-collinearity during the analysis.
