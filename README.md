@@ -15,10 +15,38 @@ Columns in the dataset contain subject number, subject age, subject gender, time
 
 Our first step is going through the dataset and identify any missing value or outlier to take necessary measures. This step is essential to prepare the data for fruitful analysis. There are no missing values in our dataset.
 
+Correlations between the variables
 ![43222766-b46c0a58-9016-11e8-875a-780cb9e3ebe7](https://user-images.githubusercontent.com/88687718/182141463-39ffc4be-90ec-49a1-a338-c9b95285ab35.png)
 
-
 We can see that all the jitter variables highly correlate with Shimmer variables.
+
+
+# Outlier Detection
+In this section we will look at some of the significant features and check if there are outliers available.
+
+![43223622-5079b920-9019-11e8-8cba-3c46823e0b17](https://user-images.githubusercontent.com/88687718/182142045-51cfb836-3c1a-48b9-9acc-fd3786ff7fd1.png)
+![43223623-508a541a-9019-11e8-86f9-23e546e01f0f](https://user-images.githubusercontent.com/88687718/182142079-b1563b90-4876-479a-b983-6792538de588.png)
+![43223624-509d9a2a-9019-11e8-88e4-907b184a64b3](https://user-images.githubusercontent.com/88687718/182142119-a0a62b92-eb5e-4869-bdc5-62b5827eb9a5.png)
+![43223625-50b829ee-9019-11e8-9317-fed790ae3654](https://user-images.githubusercontent.com/88687718/182142129-439ae94f-b2eb-4059-bce2-034e8139f1b6.png)
+![43223626-50ccfc66-9019-11e8-8b61-4cf5c4e70d3a](https://user-images.githubusercontent.com/88687718/182142147-595662f0-31e1-42c7-93da-a581a08b1f07.png)
+![43223627-50e03d62-9019-11e8-8320-819664db37d0](https://user-images.githubusercontent.com/88687718/182142161-32aa2fab-b1b7-4e45-af01-2cc59d43d8bf.png)
+
+# Dimensionality Reduction:
+Our next step is dimensionality reduction. The dataset is very large with 22 variables and some of the variables have high correlations between them. So we are expecting to reduce the number of dimensions for better interpretation of the data.
+
+Multi-dimensional scaling
+
+First we try Multi-dimensional scaling which can help us visualizing the variable relationships in 2D graphs.
+
+![43225541-fba3ee1a-901e-11e8-8bca-976efb614e25](https://user-images.githubusercontent.com/88687718/182142379-422cfe9d-3a88-4595-8308-e45ce4d199eb.png)
+
+
+The MDS plot clearly shows that age is creating a deviation between the datasets with female on the right and male on the left #this significant deviation is because the voice pictch, frequency and amplitude totally differs by being in different ranges for different genders.
+
+Criterion 1 and criterion 2 suggests that the first two coordinates can represents majority of the data points since the cummulative proportion is above the threshold value of 0.8. Hence the MDS plot can be on a 2D scatterplot
+
+![43225634-42b1b04e-901f-11e8-9fe6-5592c17da6b5](https://user-images.githubusercontent.com/88687718/182142445-9050d44e-47c0-4d60-b13a-53bf0cce30df.png)
+
 
 Below are the findings from multidimensional scaling on the parkinsons data:
 
@@ -78,7 +106,7 @@ Jitter.RAP ....... 4.544362
 
 Shimmer.dB. ...... 4.343984
 
-On applying random forest we can observe that certain attributes contribute higher to the split in the dataset i.e. certain observations help better in categorising patients based on UPDRS scores and contribute higher to disease progression or severity. below are some analysis on the output:
+ On applying random forest we can observe that certain attributes contribute higher to the split in the dataset i.e. certain observations help better in categorising patients based on UPDRS scores and contribute higher to disease progression or severity. below are some analysis on the output:
 
 Exploratory Factor Analysis
 Next we try exploratory factor analysis on the data to identify important factors.
