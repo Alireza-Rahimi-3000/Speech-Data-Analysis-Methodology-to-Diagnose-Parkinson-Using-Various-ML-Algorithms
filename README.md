@@ -443,7 +443,10 @@ According to this parameter components 1 through 4 where selected. These compone
 
 
 # Pros and Cons of the study
+
 From our study on the dataset, we have come to the conclusion that age, sex, test-time and DFA are the variables that are most difficult to capture in a factor analysis model. Though we know from Random forest analysis and research papers that these variables are most significant in deciding the UPDRS score.
+
 In PCA, the age variable has high coefficient in component 7. But if we consider principal components with 1+ standard deviation, we have to consider the first 5 components, discarding the 7th component. Accordingly, test time and DFA has high coefficient in 6th and 8th component.
+
 The data has high correlation between the variable groups “Jitter” and “Shimmer” which caused problems related to multi-collinearity during the analysis.
 Future study on the parkinsons dataset should include more detailed analysis on the above mentioned variables with high-uniqueness and how to tackle the issue.
