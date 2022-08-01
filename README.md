@@ -424,10 +424,15 @@ All of the variables showcase small magnitudes which can have positive or negati
 From the correlation matrix we have the following observatins:
 
 Variable HNR which is the ratio of noise to tonal components in the voice. This variable has an inverse releationship with all the variables.
+
 Variables containing the word “Shimmer” have high positive correlation values with each other.
+
 Variables containing the word “Jitter” have high positive correlation values with each other
+
 High correlation values between variables containing the word Shimer with variables containing the word “Jitter”
+
 The PPE variable represents a nonlinear measure of fundamental frequency variation. This variable has strong positive correlations with varaibles containing the word “jitters” or “Shimmers” and the variable RPDE. RPDE represents a nonlinear dynamical complexity measure.
+
 “total_UPDRS” and “motor_UPDRS” showcase a strong positive correlation. Where, “total_UPDRS” represents clinician’s total UPDRS score and “motor_UPDRS” the clinician’s motor UPDRS score both, linearly interpolated.
 
 
