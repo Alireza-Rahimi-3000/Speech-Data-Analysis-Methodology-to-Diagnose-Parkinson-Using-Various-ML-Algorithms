@@ -15,6 +15,9 @@ Columns in the dataset contain subject number, subject age, subject gender, time
 
 Our first step is going through the dataset and identify any missing value or outlier to take necessary measures. This step is essential to prepare the data for fruitful analysis. There are no missing values in our dataset.
 
+![43222766-b46c0a58-9016-11e8-875a-780cb9e3ebe7](https://user-images.githubusercontent.com/88687718/182141463-39ffc4be-90ec-49a1-a338-c9b95285ab35.png)
+
+
 We can see that all the jitter variables highly correlate with Shimmer variables.
 
 Below are the findings from multidimensional scaling on the parkinsons data:
