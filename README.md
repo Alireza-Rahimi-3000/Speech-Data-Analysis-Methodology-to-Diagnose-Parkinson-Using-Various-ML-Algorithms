@@ -1,6 +1,6 @@
 # Speech Data Analysis Methodology to Diagnose Parkinson Using Various ML Algorithms 
          
-         
+          
 In this study, we will analyze the patients’ data who are diagnosed with the disease. Using speech data from subjects is expected to help the development of a noninvasive diagnostic. People with Parkinsonism (PWP) suffer from speech impairments like dysphonia (defective use of the voice), hypophonia (reduced volume), monotone (reduced pitch range), and dysarthria (difficulty with articulation of sounds or syllables). Therefore, our analysis in this project will be based on voice parameters of the affected.   
              
 # Data                  
